@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+ <meta charset="utf-8">
+ <meta name="description"	content="this should be a HTML5 canvas toy implementing the file API, ingesting bitmaps for whatever reason">
+ <link rel="stylesheet" href="fiftyeightplus.css">
+</head>
+<body>
+<main>
+<p id="mysteryline">ｗｈａｔ　ｍｉｇｈｔ　ｈａｐｐｅｎ　ｈｅｒｅ？</p><br>
+<br> 
+</main>
+</body>
+</html>
+
+<script>//a creative monstrosity from the MDN
+let dropbox;
+
+dropbox = document.getElementById("mysteryline");
+dropbox.addEventListener("dragenter", dragenter, false);
+dropbox.addEventListener("dragover", dragover, false);
+dropbox.addEventListener("drop", drop, false);
+
+function dragenter(e) { //boilerplate defining a non-action
+  e.stopPropagation();
+  e.preventDefault();
+}
+
+function dragover(e) { //boilerplate defining a non-action
+  e.stopPropagation();
+  e.preventDefault();
+}
+
+function drop(e) {	//"where the magic happens"
+  e.stopPropagation();
+  e.preventDefault();
+
+  const dt = e.dataTransfer;
+  const files = dt.files;
+
+  handleFiles(files);
+  //From this point on, handling the files is the same whether the user used the input element or drag and drop.
+}
+
+
+</script>
