@@ -17,9 +17,19 @@
 let dropbox;
 
 dropbox = document.getElementById("mysteryline");
-dropbox.addEventListener("dragenter", dragenter, false);
-dropbox.addEventListener("dragover", dragover, false);
+dropbox.addEventListener("dragenter", dragenter, false); //is this essential? does it specify an action necessary for the file API? try removing later.
+dropbox.addEventListener("dragover", dragover, false); //is this essential?
 dropbox.addEventListener("drop", drop, false);
+
+let imogus;//turns out you need some taboo global state to even use the interactive console.  frustrating, right?
+
+function handleFiles(img){
+	//console.log("debug utterence; debutterence");
+	for(let i=0; i<img.length; i++){
+	console.log(img[i].name)} 
+	imogus=img; //we do a little interactive console
+}
+
 
 function dragenter(e) { //boilerplate defining a non-action
   e.stopPropagation();
