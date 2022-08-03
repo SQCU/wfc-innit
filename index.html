@@ -9,11 +9,14 @@
 <main>
 <p id="mysteryline">ｗｈａｔ　ｍｉｇｈｔ　ｈａｐｐｅｎ　ｈｅｒｅ？</p><br>
 <br> 
+<canvas id="canvussy">
 </main>
 </body>
 </html>
 
 <script>//a creative monstrosity from the MDN
+const canv = document.getElementById('canvussy'),
+ctx = canv.getContext('2d');
 let dropbox;
 
 dropbox = document.getElementById("mysteryline");
@@ -23,11 +26,25 @@ dropbox.addEventListener("drop", drop, false);
 
 let imogus;//turns out you need some taboo global state to even use the interactive console.  frustrating, right?
 
+
+function bitmappificationComplete(result){
+ctx.drawImage(result,0,0);
+}
+function bitmappificationFailure(error){
+console.error("something happened "+error);
+}
+
+
 function handleFiles(img){
 	//console.log("debug utterence; debutterence");
-	for(let i=0; i<img.length; i++){
-	console.log(img[i].name)} 
+	//for(let i=0; i<img.length; i++){
+	//console.log(img[i].name)}
+	console.log(img[0].name);//sorry only the first image counts
+	//ctx.drawImage(createImageBitmap(img.item(0)));
+	createImageBitmap(img[0]).then(bitmappificationComplete,bitmappificationFailure) 
+	
 	imogus=img; //we do a little interactive console
+	
 }
 
 
